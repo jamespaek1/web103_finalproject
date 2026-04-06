@@ -1,49 +1,33 @@
-# [your app name here]
+# PotluckHub
 
 CodePath WEB103 Final Project
 
-Designed and developed by: [your names here]
-
-🔗 Link to deployed app:
+Designed and developed by: [Member 1], [Member 2], [Member 3], [Member 4]
 
 ## About
 
 ### Description and Purpose
 
-[text goes here]
+PotluckHub is a full-stack web application that makes organizing potluck gatherings simple and stress-free.
 
 ### Inspiration
 
-[text goes here]
+We were inspired by our own experiences trying to plan group meals with friends and family.
 
 ## Tech Stack
 
-Frontend:
-
-Backend:
+Frontend: React, React Router, CSS
+Backend: Express, PostgreSQL, Node.js
 
 ## Features
 
-### [Name of Feature 1]
-
-[short description goes here]
-
-[gif goes here]
-
-### [Name of Feature 2]
-
-[short description goes here]
-
-[gif goes here]
-
-### [Name of Feature 3]
-
-[short description goes here]
-
-[gif goes here]
-
-### [ADDITIONAL FEATURES GO HERE - ADD ALL FEATURES HERE IN THE FORMAT ABOVE; you will check these off and add gifs as you complete them]
-
-## Installation Instructions
-
-[instructions go here]
+### 1. Event Creation and Management
+### 2. Recipe Library with Full CRUD
+### 3. Dish Claiming System
+### 4. User Profiles with Hosted Events
+### 5. Event RSVP System
+### 6. Database Reset
+### 7. Filter and Sort Recipes (Custom)
+### 8. Dish Claim Modal (Custom)
+### 9. Dynamic Route Navigation
+### 10. Deployment on Render
