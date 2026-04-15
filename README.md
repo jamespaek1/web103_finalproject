@@ -24,65 +24,65 @@ Backend: Express, PostgreSQL, Node.js
 
 ## Features
 
-### 1. Event Creation and Management (Baseline)
+### ✅ 1. Event Creation and Management (Baseline)
 
 Users can create new potluck events with a title, description, date, time, and location. Events can be edited or deleted by the host. All CRUD operations (GET, POST, PATCH, DELETE) are supported for events.
 
-[gif goes here]
+![Event Creation](public/gifs/event-crud.gif)
 
-### 2. Recipe Library with Full CRUD (Baseline)
+### ✅ 2. Recipe Library with Full CRUD (Baseline)
 
 Users can browse, add, edit, and delete recipes in a shared recipe library. Each recipe includes a name, description, category (appetizer, main, side, dessert, drink), and an image URL.
 
-[gif goes here]
+![Event Creation](public/gifs/event-crud.gif)
 
-### 3. Dish Claiming System (Baseline)
+### ✅ 3. Dish Claiming System (Baseline)
 
 Users can claim a recipe to bring to a specific event using a many-to-many relationship between events and recipes via an `event_dishes` join table. Users can also unclaim a dish if plans change.
 
-[gif goes here]
+![Event Creation](public/gifs/event-crud.gif)
 
-### 4. User Profiles with Hosted Events (Baseline)
+### ✅ 4. User Profiles with Hosted Events (Baseline)
 
 Each user has a profile page displaying their name, bio, and a list of events they are hosting. The one-to-many relationship between users and events is displayed here.
 
-[gif goes here]
+![Event Creation](public/gifs/event-crud.gif)
 
-### 5. Event RSVP System (Baseline)
+### ✅ 5. Event RSVP System (Baseline)
 
 Users can RSVP to events they want to attend. The app tracks who is attending each event through a many-to-many relationship between users and events via an `rsvps` join table.
 
-[gif goes here]
+![Event Creation](public/gifs/event-crud.gif)
 
-### 6. Database Reset (Baseline)
+### ✅ 6. Database Reset (Baseline)
 
 The app includes a mechanism to reset the database back to its default seeded state, restoring all original sample data for events, recipes, and users.
 
-[gif goes here]
+![Event Creation](public/gifs/event-crud.gif)
 
 ### 7. Filter and Sort Recipes (Custom Feature)
 
 Users can filter the recipe library by category (appetizer, main, side, dessert, drink) and sort recipes alphabetically or by rating. Filtering and sorting happen on the same page without navigation.
 
-[gif goes here]
+![Event Creation](public/gifs/event-crud.gif)
 
 ### 8. Dish Claim Modal (Custom Feature)
 
 When a user wants to claim a dish for an event, a modal pops up over the current page displaying available recipes to choose from. The user can select a recipe and confirm their claim without navigating away from the event page.
 
-[gif goes here]
+![Event Creation](public/gifs/event-crud.gif)
 
-### 9. Dynamic Route Navigation (Baseline)
+### ✅ 9. Dynamic Route Navigation (Baseline)
 
 The app uses React Router to create dynamic frontend routes for individual event pages (`/events/:id`) and user profile pages (`/users/:id`), enabling deep linking and browser navigation.
 
-[gif goes here]
+![Event Creation](public/gifs/event-crud.gif)
 
 ### 10. Deployment on Render (Baseline)
 
 The complete application — frontend and backend — is deployed on Render with all pages and features fully functional and accessible via a public URL.
 
-[gif goes here]
+![Event Creation](public/gifs/event-crud.gif)
 
 ## Installation Instructions
 
