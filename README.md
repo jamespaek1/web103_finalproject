@@ -84,6 +84,10 @@ The complete application — frontend and backend — is deployed on Render with
 
 ![Feature Demo](public/gifs/milestone3-demo.gif)
 
+### Entity Relationships
+
+<img width="1663" height="839" alt="image" src="https://github.com/user-attachments/assets/5cd910bf-291b-4775-88fc-e9eca3bb0949" />
+
 ## Installation Instructions
 
 1. Fork and clone the repository.
