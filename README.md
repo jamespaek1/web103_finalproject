@@ -84,13 +84,6 @@ The complete application — frontend and backend — is deployed on Render with
 
 ![Feature Demo](public/gifs/milestone4-demo.gif)
 
-<<<<<<< HEAD
-=======
-### Entity Relationships
-
-<img width="1663" height="839" alt="image" src="https://github.com/user-attachments/assets/5cd910bf-291b-4775-88fc-e9eca3bb0949" />
-
->>>>>>> 272cf1758715a2cf4239684174d43f27cd641f3b
 ## Installation Instructions
 
 1. Fork and clone the repository.
@@ -100,8 +93,5 @@ The complete application — frontend and backend — is deployed on Render with
 5. Run `npm start` to start the backend server.
 6. In a new terminal, navigate to the `client` directory and run `npm install` to install frontend dependencies.
 7. Run `npm run dev` to start the React development server.
-<<<<<<< HEAD
 8. Open `http://localhost:5173` in your browser.
-=======
-8. Open `http://localhost:5173` in your browser.
->>>>>>> 272cf1758715a2cf4239684174d43f27cd641f3b
+
