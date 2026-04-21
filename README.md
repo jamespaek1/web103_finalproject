@@ -4,7 +4,7 @@ CodePath WEB103 Final Project
 
 Designed and developed by: Tom Strzyz, Dongping Guo, James Paek, Eman Gurung
 
-🔗 Link to deployed app: https://github.com/jamespaek1/web103_finalproject
+🔗 Link to deployed app: https://potluckhub.onrender.com
 
 ## About
 
@@ -60,29 +60,29 @@ The app includes a mechanism to reset the database back to its default seeded st
 
 ![Feature Demo](public/gifs/milestone3-demo.gif)
 
-### 7. Filter and Sort Recipes (Custom Feature)
+### ✅ 7. Filter and Sort Recipes (Custom Feature)
 
 Users can filter the recipe library by category (appetizer, main, side, dessert, drink) and sort recipes alphabetically or by rating. Filtering and sorting happen on the same page without navigation.
 
 ![Feature Demo](public/gifs/milestone3-demo.gif)
 
-### 8. Dish Claim Modal (Custom Feature)
+### ✅ 8. Dish Claim Modal (Custom Feature)
 
 When a user wants to claim a dish for an event, a modal pops up over the current page displaying available recipes to choose from. The user can select a recipe and confirm their claim without navigating away from the event page.
 
-![Feature Demo](public/gifs/milestone3-demo.gif)
+![Feature Demo](public/gifs/milestone4-demo.gif)
 
 ### ✅ 9. Dynamic Route Navigation (Baseline)
 
 The app uses React Router to create dynamic frontend routes for individual event pages (`/events/:id`) and user profile pages (`/users/:id`), enabling deep linking and browser navigation.
 
-![Feature Demo](public/gifs/milestone3-demo.gif)
+![Feature Demo](public/gifs/milestone4-demo.gif)
 
-### 10. Deployment on Render (Baseline)
+### ✅ 10. Deployment on Render (Baseline)
 
 The complete application — frontend and backend — is deployed on Render with all pages and features fully functional and accessible via a public URL.
 
-![Feature Demo](public/gifs/milestone3-demo.gif)
+![Feature Demo](public/gifs/milestone4-demo.gif)
 
 ## Installation Instructions
 
