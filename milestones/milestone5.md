@@ -80,7 +80,7 @@ Complete the checklist below detailing each baseline, custom, and stretch featur
 
 ## Final Demo GIF
 
-🔗 [Feature Demo](public/gifs/milestone5-demo.gif)
+🔗 ![Final Demo GIF](../public/gifs/milestone5-demo.gif)
 
 
 ## Reflection
