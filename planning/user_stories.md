@@ -1,13 +1,11 @@
 # User Stories
 
-Reference the Writing User Stories final project guide in the course portal for more information about how to complete each of the sections below.
-
-## Outline User Roles
+## User roles
 
 1. **Host** — a user who creates and manages potluck events, sets event details, and oversees what dishes are being brought.
 2. **Guest** — a user who browses available events, RSVPs to attend, claims dishes to bring, and leaves ratings on recipes after the event.
 
-## Draft User Stories
+## Product stories
 
 1. As a **host**, I want to create a new potluck event with a title, date, time, and location, so that I can invite people to my gathering.
 2. As a **host**, I want to edit my event's details after creating it, so that I can update the time or location if plans change.

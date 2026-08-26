@@ -1,10 +1,10 @@
-cat > planning/entity_relationship_diagram.md << 'ENDOFFILE'
-
 # Entity Relationship Diagram
 
-Reference the Creating an Entity Relationship Diagram final project guide in the course portal for more information about how to complete this deliverable.
+PotluckHub uses five connected PostgreSQL tables for accounts, hosted events, recipes, RSVPs, and dish claims.
 
-## Create the List of Tables
+![PotluckHub entity relationship diagram](images/potluckhub_erd.svg)
+
+## Tables
 
 1. users
 2. events
@@ -74,4 +74,3 @@ Reference the Creating an Entity Relationship Diagram final project guide in the
 - **One-to-many**: users to events (a user can host many events)
 - **Many-to-many**: events to recipes (via event_dishes join table)
 - **Many-to-many**: users to events (via rsvps join table)
-ENDOFFILE

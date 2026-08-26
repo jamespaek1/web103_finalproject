@@ -1,16 +1,21 @@
-# React + Vite
+# PotluckHub client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The PotluckHub client is a Vite-powered React application for browsing potluck events and recipes, managing RSVPs, and claiming dishes.
 
-Currently, two official plugins are available:
+## Local setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+The client runs at `http://localhost:5173` by default. It expects the API at `http://localhost:3001`; set `VITE_API_URL` to use a different API endpoint.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Production build
 
-## Expanding the ESLint configuration
+```bash
+npm run build
+npm run preview
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The full-stack application requires the API configuration documented in the [main project README](../README.md#run-locally).

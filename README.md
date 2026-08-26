@@ -33,7 +33,7 @@ The team built a Vite-powered React client, an Express REST API, and a PostgreSQ
 
 ## My contribution
 
-This was a four-person CodePath project. My Git history documents responsibility for final repository integration and project presentation: consolidating client and server work, assembling milestone documentation and demo media, completing the Milestone 5 handoff, and resolving final merge conflicts. I can speak to how the user interface, API, relational model, and deployment package were assembled.
+This was a four-person CodePath project. My Git history documents responsibility for final repository integration and project presentation: consolidating client and server work, assembling project documentation and demo media, completing the final handoff, and resolving merge conflicts. I can speak to how the user interface, API, relational model, and deployment package were assembled. See the [development history](docs/development-history.md) for the project progression and lessons learned.
 
 ## Project evidence
 
@@ -56,6 +56,14 @@ This was a four-person CodePath project. My Git history documents responsibility
 - **Data:** PostgreSQL
 - **Integrations:** GitHub OAuth, Cloudinary
 - **Deployment evidence:** GitHub Pages
+
+## Repository guide
+
+- `client/` — Vite and React user interface
+- `server/` — Express API, authentication, uploads, and PostgreSQL integration
+- `planning/` — product stories, wireframes, and the entity-relationship model
+- `docs/development-history.md` — concise build progression and retrospective
+- `public/gifs/` — three recorded end-to-end demonstrations
 
 ## Run locally
 
@@ -88,6 +96,7 @@ The original Render deployment is currently offline. The [public project demo](h
 ## Security note
 
 - Never commit `.env`, database credentials, OAuth secrets, or Cloudinary secrets.
+- GitHub secret scanning and push protection are enabled for this public repository.
 - Database reset is disabled unless a developer explicitly opts in locally.
 - API mutations require an authenticated session in the hardened source.
 - Use test data rather than personal information when demonstrating the project.
