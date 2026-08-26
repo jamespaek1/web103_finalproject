@@ -79,7 +79,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173). The client expects the API at `http://localhost:3001` unless `VITE_API_URL` is set.
+Open `http://localhost:5173`. The client expects the API at `http://localhost:3001` unless `VITE_API_URL` is set.
 
 ## Deployment status
 
