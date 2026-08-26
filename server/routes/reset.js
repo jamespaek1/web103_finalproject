@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../config/database');
+const requireAuth = require('../middleware/requireAuth');
 
-router.post('/', async (req, res) => {
+router.post('/', requireAuth, async (req, res) => {
   try {
     await pool.query(`
       DROP TABLE IF EXISTS event_dishes CASCADE;

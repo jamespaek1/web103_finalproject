@@ -4,7 +4,9 @@ const pool = require('../config/database');
 
 router.get('/', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM users ORDER BY name ASC');
+    const result = await pool.query(
+      'SELECT id, name, bio, avatar_url, created_at FROM users ORDER BY name ASC'
+    );
     res.json(result.rows);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -14,7 +16,10 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const user = await pool.query('SELECT * FROM users WHERE id = $1', [id]);
+    const user = await pool.query(
+      'SELECT id, name, bio, avatar_url, created_at FROM users WHERE id = $1',
+      [id]
+    );
     if (user.rows.length === 0) {
       return res.status(404).json({ error: 'User not found' });
     }

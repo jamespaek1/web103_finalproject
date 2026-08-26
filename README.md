@@ -1,97 +1,93 @@
 # PotluckHub
 
-CodePath WEB103 Final Project
+A collaborative full-stack application for organizing potluck events, coordinating RSVPs, managing recipes, and claiming dishes.
 
-Designed and developed by: Tom Strzyz, Dongping Guo, James Paek, Eman Gurung
+[View the public project demo](https://jamespaek1.github.io/web103_finalproject/) · [Explore the source](https://github.com/jamespaek1/web103_finalproject)
 
-🔗 Link to deployed app: https://potluckhub.onrender.com
+Designed and developed by Tom Strzyz, Dongping Guo, James Paek, and Eman Gurung for the CodePath WEB103 final project.
 
-## About
+## Project overview
 
-### Description and Purpose
+Group meals are often coordinated through scattered messages and spreadsheets. PotluckHub gives hosts and guests one shared place to create an event, see who is attending, browse recipes, and claim dishes without duplicating what someone else is bringing.
 
-PotluckHub is a full-stack web application that makes organizing potluck gatherings simple and stress-free. Users can create potluck events, browse a shared recipe library, claim dishes they plan to bring, and leave ratings and reviews on dishes after the event. The app eliminates the classic potluck problem of five people bringing potato salad and nobody bringing plates — by giving everyone visibility into what's already been claimed, hosts and guests can coordinate effortlessly.
+## Approach
 
-### Inspiration
-
-We were inspired by our own experiences trying to plan group meals with friends and family. Coordinating who's bringing what usually involves a messy group chat or a shared spreadsheet that nobody updates. We wanted to build a purpose-built tool that makes the process fun and organized, while also creating a growing recipe collection that users can revisit for future events.
-
-## Tech Stack
-
-Frontend: React, React Router, CSS
-
-Backend: Express, PostgreSQL, Node.js
+The team built a Vite-powered React client, an Express REST API, and a PostgreSQL data model. The application connects users, events, recipes, RSVPs, and dish claims; GitHub OAuth provides account access, while React Router supports event and profile pages.
 
 ## Features
 
-### ✅ 1. Event Creation and Management (Baseline)
+- Create, edit, browse, and remove potluck events.
+- Browse, filter, sort, create, and update recipes.
+- RSVP to an event and see its guest list.
+- Claim or unclaim a recipe for a specific event.
+- View hosted events, RSVPs, and claimed dishes on user profiles.
+- Navigate directly to event and profile pages with dynamic routes.
+- Upload food images through Cloudinary in the full-stack build.
 
-Users can create new potluck events with a title, description, date, time, and location. Events can be edited or deleted by the host. All CRUD operations (GET, POST, PATCH, DELETE) are supported for events.
+## Outcomes
 
-![Feature Demo](public/gifs/milestone3-demo.gif)
+- Delivered a five-table PostgreSQL model connecting users, events, recipes, RSVPs, and claimed dishes.
+- Integrated React, Express, PostgreSQL, GitHub OAuth, image uploads, and REST endpoints into one application.
+- Completed three recorded end-to-end demonstrations of the product.
+- Added a stable, read-only GitHub Pages demo so reviewers can access project evidence without a login or suspended service.
 
-### ✅ 2. Recipe Library with Full CRUD (Baseline)
+## My contribution
 
-Users can browse, add, edit, and delete recipes in a shared recipe library. Each recipe includes a name, description, category (appetizer, main, side, dessert, drink), and an image URL.
+This was a four-person CodePath project. My Git history documents responsibility for final repository integration and project presentation: consolidating client and server work, assembling milestone documentation and demo media, completing the Milestone 5 handoff, and resolving final merge conflicts. I can speak to how the user interface, API, relational model, and deployment package were assembled.
 
-![Feature Demo](public/gifs/milestone3-demo.gif)
+## Project evidence
 
-### ✅ 3. Dish Claiming System (Baseline)
+### Core event, recipe, RSVP, and dish workflows
 
-Users can claim a recipe to bring to a specific event using a many-to-many relationship between events and recipes via an `event_dishes` join table. Users can also unclaim a dish if plans change.
+![PotluckHub core application workflows](public/gifs/milestone3-demo.gif)
 
-![Feature Demo](public/gifs/milestone3-demo.gif)
+### Dish-claim modal and dynamic navigation
 
-### ✅ 4. User Profiles with Hosted Events (Baseline)
+![PotluckHub modal and navigation demonstration](public/gifs/milestone4-demo.gif)
 
-Each user has a profile page displaying their name, bio, and a list of events they are hosting. The one-to-many relationship between users and events is displayed here.
+### Final integrated walkthrough
 
-![Feature Demo](public/gifs/milestone3-demo.gif)
+![PotluckHub final end-to-end walkthrough](public/gifs/milestone5-demo.gif)
 
-### ✅ 5. Event RSVP System (Baseline)
+## Technology
 
-Users can RSVP to events they want to attend. The app tracks who is attending each event through a many-to-many relationship between users and events via an `rsvps` join table.
+- **Frontend:** React, React Router, Vite, CSS
+- **Backend:** Node.js, Express, Passport
+- **Data:** PostgreSQL
+- **Integrations:** GitHub OAuth, Cloudinary
+- **Deployment evidence:** GitHub Pages
 
-![Feature Demo](public/gifs/milestone3-demo.gif)
+## Run locally
 
-### ✅ 6. Database Reset (Baseline)
+### 1. Configure the API
 
-The app includes a mechanism to reset the database back to its default seeded state, restoring all original sample data for events, recipes, and users.
+```bash
+cd server
+cp .env.example .env
+npm install
+npm run setup
+npm start
+```
 
-![Feature Demo](public/gifs/milestone3-demo.gif)
+Supply local values for the variables listed in `server/.env.example`. Keep the completed `.env` file private.
 
-### ✅ 7. Filter and Sort Recipes (Custom Feature)
+### 2. Start the client
 
-Users can filter the recipe library by category (appetizer, main, side, dessert, drink) and sort recipes alphabetically or by rating. Filtering and sorting happen on the same page without navigation.
+```bash
+cd client
+npm install
+npm run dev
+```
 
-![Feature Demo](public/gifs/milestone3-demo.gif)
+Open [http://localhost:5173](http://localhost:5173). The client expects the API at `http://localhost:3001` unless `VITE_API_URL` is set.
 
-### ✅ 8. Dish Claim Modal (Custom Feature)
+## Deployment status
 
-When a user wants to claim a dish for an event, a modal pops up over the current page displaying available recipes to choose from. The user can select a recipe and confirm their claim without navigating away from the event page.
+The original Render deployment is currently offline. The [public project demo](https://jamespaek1.github.io/web103_finalproject/) is the stable replacement for portfolio review and contains all three recorded walkthroughs. The interactive backend should remain offline until its credentials are rotated and authorization controls are verified.
 
-![Feature Demo](public/gifs/milestone4-demo.gif)
+## Security note
 
-### ✅ 9. Dynamic Route Navigation (Baseline)
-
-The app uses React Router to create dynamic frontend routes for individual event pages (`/events/:id`) and user profile pages (`/users/:id`), enabling deep linking and browser navigation.
-
-![Feature Demo](public/gifs/milestone4-demo.gif)
-
-### ✅ 10. Deployment on Render (Baseline)
-
-The complete application — frontend and backend — is deployed on Render with all pages and features fully functional and accessible via a public URL.
-
-![Feature Demo](public/gifs/milestone4-demo.gif)
-
-## Installation Instructions
-
-1. Fork and clone the repository.
-2. Navigate to the `server` directory and run `npm install` to install backend dependencies.
-3. Create a `.env` file in `server` with your PostgreSQL connection string: `DATABASE_URL=your_connection_string_here`.
-4. Run `npm run setup` to create and seed the database.
-5. Run `npm start` to start the backend server.
-6. In a new terminal, navigate to the `client` directory and run `npm install` to install frontend dependencies.
-7. Run `npm run dev` to start the React development server.
-8. Open `http://localhost:5173` in your browser.
-
+- Never commit `.env`, database credentials, OAuth secrets, or Cloudinary secrets.
+- Database reset is disabled unless a developer explicitly opts in locally.
+- API mutations require an authenticated session in the hardened source.
+- Use test data rather than personal information when demonstrating the project.

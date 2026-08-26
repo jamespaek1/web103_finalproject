@@ -17,6 +17,10 @@ const uploadRouter = require('./routes/upload');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+if (!process.env.SESSION_SECRET) {
+  throw new Error('SESSION_SECRET is required');
+}
+
 const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173';
 
 app.use(cors({
@@ -50,7 +54,9 @@ app.use('/api/recipes', recipesRouter);
 app.use('/api/rsvps', rsvpsRouter);
 app.use('/api/event-dishes', eventDishesRouter);
 app.use('/api/users', usersRouter);
-app.use('/api/reset', resetRouter);
+if (process.env.ALLOW_DATABASE_RESET === 'true' && process.env.NODE_ENV !== 'production') {
+  app.use('/api/reset', resetRouter);
+}
 app.use('/api/upload', uploadRouter);
 
 app.listen(PORT, () => {

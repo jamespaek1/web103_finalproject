@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../config/database');
+const requireAuth = require('../middleware/requireAuth');
 
 // GET all recipes with optional filter and sort
 router.get('/', async (req, res) => {
@@ -43,13 +44,13 @@ router.get('/:id', async (req, res) => {
 });
 
 // POST create recipe
-router.post('/', async (req, res) => {
+router.post('/', requireAuth, async (req, res) => {
   try {
-    const { name, description, category, image_url, created_by } = req.body;
+    const { name, description, category, image_url } = req.body;
     const result = await pool.query(
       `INSERT INTO recipes (name, description, category, image_url, created_by)
        VALUES ($1, $2, $3, $4, $5) RETURNING *`,
-      [name, description, category, image_url, created_by]
+      [name, description, category, image_url, req.user.id]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
@@ -58,7 +59,7 @@ router.post('/', async (req, res) => {
 });
 
 // PATCH update recipe
-router.patch('/:id', async (req, res) => {
+router.patch('/:id', requireAuth, async (req, res) => {
   try {
     const { id } = req.params;
     const { name, description, category, image_url } = req.body;
@@ -68,8 +69,8 @@ router.patch('/:id', async (req, res) => {
            description = COALESCE($2, description),
            category = COALESCE($3, category),
            image_url = COALESCE($4, image_url)
-       WHERE id = $5 RETURNING *`,
-      [name, description, category, image_url, id]
+       WHERE id = $5 AND created_by = $6 RETURNING *`,
+      [name, description, category, image_url, id, req.user.id]
     );
 
     if (result.rows.length === 0) {
@@ -82,10 +83,13 @@ router.patch('/:id', async (req, res) => {
 });
 
 // DELETE recipe
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', requireAuth, async (req, res) => {
   try {
     const { id } = req.params;
-    const result = await pool.query('DELETE FROM recipes WHERE id = $1 RETURNING *', [id]);
+    const result = await pool.query(
+      'DELETE FROM recipes WHERE id = $1 AND created_by = $2 RETURNING *',
+      [id, req.user.id]
+    );
 
     if (result.rows.length === 0) {
       return res.status(404).json({ error: 'Recipe not found' });

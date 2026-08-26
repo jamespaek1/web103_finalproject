@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../config/database');
+const requireAuth = require('../middleware/requireAuth');
 
 // GET all events
 router.get('/', async (req, res) => {
@@ -60,13 +61,13 @@ router.get('/:id', async (req, res) => {
 });
 
 // POST create event
-router.post('/', async (req, res) => {
+router.post('/', requireAuth, async (req, res) => {
   try {
-    const { host_id, title, description, event_date, event_time, location } = req.body;
+    const { title, description, event_date, event_time, location } = req.body;
     const result = await pool.query(
       `INSERT INTO events (host_id, title, description, event_date, event_time, location)
        VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
-      [host_id, title, description, event_date, event_time, location]
+      [req.user.id, title, description, event_date, event_time, location]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
@@ -75,7 +76,7 @@ router.post('/', async (req, res) => {
 });
 
 // PATCH update event
-router.patch('/:id', async (req, res) => {
+router.patch('/:id', requireAuth, async (req, res) => {
   try {
     const { id } = req.params;
     const { title, description, event_date, event_time, location } = req.body;
@@ -86,8 +87,8 @@ router.patch('/:id', async (req, res) => {
            event_date = COALESCE($3, event_date),
            event_time = COALESCE($4, event_time),
            location = COALESCE($5, location)
-       WHERE id = $6 RETURNING *`,
-      [title, description, event_date, event_time, location, id]
+       WHERE id = $6 AND host_id = $7 RETURNING *`,
+      [title, description, event_date, event_time, location, id, req.user.id]
     );
 
     if (result.rows.length === 0) {
@@ -100,10 +101,13 @@ router.patch('/:id', async (req, res) => {
 });
 
 // DELETE event
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', requireAuth, async (req, res) => {
   try {
     const { id } = req.params;
-    const result = await pool.query('DELETE FROM events WHERE id = $1 RETURNING *', [id]);
+    const result = await pool.query(
+      'DELETE FROM events WHERE id = $1 AND host_id = $2 RETURNING *',
+      [id, req.user.id]
+    );
 
     if (result.rows.length === 0) {
       return res.status(404).json({ error: 'Event not found' });
